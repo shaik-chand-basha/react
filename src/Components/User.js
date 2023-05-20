@@ -8,7 +8,7 @@ function User(props) {
     let ageMessage = props.age && "(" + props.age + " years old)";
    
     return (
-        <UserDiv>
+        <UserDiv onClick={props.onClick} data-id={props.id}>
             {toPascalCase(props.username)+" "+ageMessage}
         </UserDiv>
     )

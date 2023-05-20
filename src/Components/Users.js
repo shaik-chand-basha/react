@@ -31,7 +31,7 @@ export default function Users(props) {
                     ?
                     itemsElement
                     :
-                    items.map(x => <User {...x} key={Math.random()} />)
+                    items.map(x => <User onClick = {props.deleteUserHandler} {...x} key={Math.random()} />)
                 }
             </UsersDiv>
         </Card >

@@ -13,13 +13,23 @@ const DUMMY_USERS = [
 ]
 
 function App() {
- const [items,addItem]  = useState([])
+  const [items, addItem] = useState([])
+  const deleteUserHandler = e => {
+    let id = e.currentTarget.dataset.id;
+    addItem(itemsData => {
+      let index = itemsData.findIndex(x => x.id === id)
+      if (index >= 0) {
+        itemsData.splice(index, 1)
+      }
+      return [...itemsData];
+    });
+  }
   return (
     <>
 
       <div className="container">
-        <UserForm   addItem={addItem} />
-        <Users items={items}></Users>
+        <UserForm addItem={addItem} />
+        <Users items={items} deleteUserHandler={deleteUserHandler}></Users>
       </div>
     </>
   );

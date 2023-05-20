@@ -2,6 +2,7 @@ import { styled } from "styled-components"
 import { Card } from "./UI/Card"
 import { toPascalCase } from "../Utility/Utility"
 import { useState } from "react"
+import { randomStr } from "../Utility/Utility"
 let FormStyled = styled.form`
 
 `
@@ -61,6 +62,7 @@ export default function UserForm(props) {
           
         setAge(e.target.value)
      }
+    
     function addUser(e) {
         e.preventDefault();
         if(age<1){
@@ -71,7 +73,8 @@ export default function UserForm(props) {
         }
         let item = {
             username: username,
-            age: age
+            age: Number.parseInt(age),
+            id:randomStr("user-")
         }
         props.addItem(items => [item, ...items])
         setUsername("")
