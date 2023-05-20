@@ -65,10 +65,26 @@ export default function UserForm(props) {
     
     function addUser(e) {
         e.preventDefault();
+        let isError = false;
         if(age<1){
-           return 
+            isError = true;
+            props.openModal({
+                isVisible:true,
+                title:"Invalid Input",
+                body:"Please enter valid age ie. age>0"
+            })
+          
         }  
         if(!username){
+            isError = true;
+            props.openModal({
+                isVisible:true,
+                title:"Invalid Input",
+                body:"Username should not be empty"
+            })
+            
+        }
+        if(isError){
             return
         }
         let item = {

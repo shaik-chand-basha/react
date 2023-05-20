@@ -11,6 +11,6 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
 `
 export function Card(props) {
     return (
-        <CardDiv  className={props.className ?? ""}>{props.children}</CardDiv>
+        <CardDiv style={props.style}  className={props.className ?? ""}>{props.children}</CardDiv>
     )
 }
